@@ -45,9 +45,17 @@ class ContentDisposition:
         return urlencode({"filename": self.filename}, quote_via=quote)
 
     @property
-    def header(self) -> Dict[str, str]:
+    def header(self) -> str:
         """
         >>> ContentDisposition.xlsx('report.xlsx').header
+        'attachment; filename=report.xlsx'
+        """
+        return f'attachment; {self.filename_encoded}'
+
+    @property
+    def header_dict(self) -> Dict[str, str]:
+        """
+        >>> ContentDisposition.xlsx('report.xlsx').header_dict
         {'Content-Disposition': 'attachment; filename=report.xlsx'}
         """
-        return {'Content-Disposition': f'attachment; {self.filename_encoded}'}
+        return {'Content-Disposition': self.header}
