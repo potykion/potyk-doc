@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from typing import Optional, Dict
+from typing import Optional, Dict, Union
 
 import pdfkit
 
@@ -15,18 +15,27 @@ class WkhtmltopdfOptions:
     """
     options: Dict[str, str] = dataclasses.field(default_factory=dict)
 
+    def add_option(self, option_name, option_val):
+        return dataclasses.replace(self, options={**self.options, option_name: option_val})
+
     def page_width(self, page_width_mm: str):
-        return dataclasses.replace(self, options={**self.options, '--page-width': page_width_mm})
+        return self.add_option('--page-width', page_width_mm)
 
     def page_height(self, page_height_mm: str):
-        return dataclasses.replace(self, options={**self.options, '--page-height': page_height_mm})
+        return self.add_option('--page-height', page_height_mm)
+
+    def footer_html(self, footer_html_path: str):
+        return self.add_option("--footer-html", footer_html_path)
+
+    def header_html(self, header_html_path: str):
+        return self.add_option("--header-html", header_html_path)
 
 
 def render_pdf_from_html(
     pdf_html: HTMLStr,
     pdf_name: FileName,
-    css_path: Optional[str, Path] = None,
-    options: Optional[dict, WkhtmltopdfOptions] = None,
+    css_path: Union[str, Path, None] = None,
+    options: Union[dict, WkhtmltopdfOptions, None] = None,
 ) -> File:
     """
     Рендерит pdf из html {pdf_html}.
