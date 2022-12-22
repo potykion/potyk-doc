@@ -37,3 +37,6 @@ class File(NamedTuple):
     """Файл - тьюпл из байтов и названия файла"""
     data: FileData
     name: FileName
+
+
+HTMLStr = str
