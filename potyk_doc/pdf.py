@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from typing import Optional, Dict, Union
+from typing import Dict, Union
 
 import pdfkit
 
