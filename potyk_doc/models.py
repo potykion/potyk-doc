@@ -1,4 +1,5 @@
 import enum
+import os.path
 from typing import Tuple, NamedTuple
 
 
@@ -14,6 +15,15 @@ class Mimetype(str, enum.Enum):
     any = 'application/octet-stream'
     docx = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
     xlsx = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+
+    @classmethod
+    def guess(cls, filename):
+        """
+        >>> Mimetype.guess('archive.zip')
+        <Mimetype.zip: 'application/zip'>
+        """
+        _, ext = os.path.basename(filename).split('.')
+        return cls.__members__[ext]
 
 
 class DocumentType(str, enum.Enum):

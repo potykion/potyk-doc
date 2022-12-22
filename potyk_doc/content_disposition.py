@@ -30,6 +30,10 @@ class ContentDisposition:
     def zip(cls, filename):
         return cls(filename, Mimetype.zip)
 
+    @classmethod
+    def guess(cls, filename):
+        return cls(filename, Mimetype.guess(filename))
+
     @property
     def filename_encoded(self) -> str:
         """
