@@ -1,40 +1,34 @@
 import dataclasses
-from typing import Dict, Literal
+from typing import Dict
 from urllib.parse import urlencode, quote
 
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-# https://en.wikipedia.org/wiki/Media_type
-Mimetype = Literal[
-    'text/plain',
-    'text/html',
-    'text/csv',
-    'application/json',
-    'application/pdf',
-    'application/zip',
-    'application/octet-stream',
-        # .docx
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        # .xlsx
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-]
+from potyk_doc.models import Mimetype
 
 
 @dataclasses.dataclass
 class ContentDisposition:
     filename: str
-    content_type: Mimetype = 'application/octet-stream'
+    mimetype: Mimetype = Mimetype.any
+
+    @property
+    def content_type(self):
+        return self.mimetype.value
 
     @classmethod
     def docx(cls, filename):
-        return cls(filename, "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+        return cls(filename, Mimetype.docx)
 
     @classmethod
     def xlsx(cls, filename):
-        return cls(filename, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        return cls(filename, Mimetype.xlsx)
 
     @classmethod
     def pdf(cls, filename):
-        return cls(filename, "application/pdf")
+        return cls(filename, Mimetype.pdf)
+
+    @classmethod
+    def zip(cls, filename):
+        return cls(filename, Mimetype.zip)
 
     @property
     def filename_encoded(self) -> str:
