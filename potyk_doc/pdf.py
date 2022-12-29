@@ -1,7 +1,9 @@
 import dataclasses
+import io
 from pathlib import Path
 from typing import Dict, Union
 
+import PyPDF2
 import pdfkit
 
 from potyk_doc.models import HTMLStr, FileData
@@ -53,3 +55,15 @@ def render_pdf_from_html(
     options = options.options if isinstance(options, WkhtmltopdfOptions) else options
     pdf_data = pdfkit.from_string(pdf_html, False, css=css_path, options=options)
     return pdf_data
+
+
+def pdfs_are_equal(pdf_1: bytes, pdf_2: bytes) -> bool:
+    pdf_1_data = PyPDF2.PdfReader(io.BytesIO(pdf_1))
+    pdf_2_data = PyPDF2.PdfReader(io.BytesIO(pdf_2))
+    return (
+        len(pdf_1_data.pages) == len(pdf_2_data.pages) and
+        all(
+            pdf_1_page.extract_text() == pdf_2_page.extract_text()
+            for pdf_1_page, pdf_2_page in zip(pdf_1_data.pages, pdf_2_data.pages)
+        )
+    )
