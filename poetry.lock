@@ -185,6 +185,24 @@ python-versions = ">=3.6.8"
 diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
+name = "pypdf2"
+version = "3.0.0"
+description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+typing_extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
+
+[package.extras]
+crypto = ["pycryptodome"]
+dev = ["black", "pip-tools", "pre-commit (<2.18.0)", "pytest-cov", "flit", "wheel"]
+docs = ["sphinx", "sphinx-rtd-theme", "myst-parser"]
+full = ["pycryptodome", "pillow"]
+image = ["pillow"]
+
+[[package]]
 name = "pytest"
 version = "7.2.0"
 description = "pytest: simple powerful testing with Python"
@@ -250,10 +268,18 @@ category = "dev"
 optional = false
 python-versions = ">=3.7"
 
+[[package]]
+name = "typing-extensions"
+version = "4.4.0"
+description = "Backported and Experimental Type Hints for Python 3.7+"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "acc201e9022247496c4a6a9082a64960328976903359fdfe6d77a73a694e5c84"
+content-hash = "171c0e320dfff541634f6c44b5c4ff38ea02608e154965a058329866d5c23d87"
 
 [metadata.files]
 attrs = []
@@ -278,6 +304,7 @@ phonenumbers = []
 pluggy = []
 potyk-lib = []
 pyparsing = []
+pypdf2 = []
 pytest = []
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
@@ -290,3 +317,4 @@ six = [
     {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 tomli = []
+typing-extensions = []
