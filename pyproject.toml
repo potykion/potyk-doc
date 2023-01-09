@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "potyk-doc"
-version = "0.7.1"
+version = "0.7.2"
 description = ""
 authors = ["potykion <potykion@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-potyk-lib = "^0.1.1"
+potyk-lib = "^0.2.0"
 pdfkit = "^1.0.0"
 docxtpl = "^0.16.4"
 PyPDF2 = "^3.0.0"
