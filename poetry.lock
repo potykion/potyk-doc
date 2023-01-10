@@ -162,7 +162,7 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "potyk-lib"
-version = "0.4.0"
+version = "0.5.0"
 description = ""
 category = "main"
 optional = false
@@ -267,7 +267,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "d32627341440633af942b0f260033452bcabeefaa39e36b909c51ca216b85dbf"
+content-hash = "2db1061d086ed03c5ec90ffffe3fd9471d8a7f682591f2d4aade3ebd7c95624d"
 
 [metadata.files]
 attrs = []
