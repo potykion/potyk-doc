@@ -1,6 +1,6 @@
 import enum
 import os.path
-from typing import Tuple, NamedTuple
+from typing import NamedTuple
 
 
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
@@ -21,8 +21,10 @@ class Mimetype(str, enum.Enum):
         """
         >>> Mimetype.guess('archive.zip')
         <Mimetype.zip: 'application/zip'>
+        >>> Mimetype.guess('op.oppa.zip')
+        <Mimetype.zip: 'application/zip'>
         """
-        _, ext = os.path.basename(filename).split('.')
+        _, ext = os.path.basename(filename).rsplit('.', 1)
         return cls.__members__[ext]
 
 

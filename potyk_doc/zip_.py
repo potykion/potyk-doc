@@ -31,7 +31,7 @@ def list_zip_files(zip_file: Union[File, FileData]) -> List[File]:
     def zip_file_generator(zf: ZipFile) -> Iterable[File]:
         for filename in zf.namelist():
             content = zf.read(filename)
-            yield content, filename
+            yield File(content, filename)
 
     if isinstance(zip_file, FileData):
         zip_data = zip_file
