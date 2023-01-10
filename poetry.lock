@@ -162,7 +162,7 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "potyk-lib"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 category = "main"
 optional = false
@@ -267,7 +267,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "aa100e4ee6feee1b94ab3625788337701c407acec54f2a4c607ed437079c9d1a"
+content-hash = "a5eb9b98c735f33eb230db691e3ad8c90ac456e351814b5c80f55d955eddb7fb"
 
 [metadata.files]
 attrs = []
@@ -287,15 +287,9 @@ pluggy = []
 potyk-lib = []
 pypdf2 = []
 pytest = []
-python-dateutil = [
-    {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
-    {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
-]
+python-dateutil = []
 python-docx = []
 pytz = []
-six = [
-    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
-    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
-]
+six = []
 tomli = []
 typing-extensions = []

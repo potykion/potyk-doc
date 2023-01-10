@@ -6,7 +6,7 @@ authors = ["potykion <potykion@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-potyk-lib = "^0.2.0"
+potyk-lib = "^0.3.0"
 pdfkit = "^1.0.0"
 docxtpl = "^0.16.4"
 PyPDF2 = "^3.0.0"
