@@ -2,13 +2,14 @@ import io
 from openpyxl import Workbook, load_workbook
 from jinja2xlsx import render_xlsx
 
+from potyk_doc.models import FileData
 
-def render_xlsx_from_html(html) -> io.BytesIO:
+
+def render_xlsx_from_html(html: str) -> FileData:
     workbook: Workbook = render_xlsx(html)
     workbook.save(stream := io.BytesIO())
-    return stream
+    return stream.getvalue()
 
 
-def xlsx_values(xlsx_stream: io.BytesIO):
-    return tuple(load_workbook(xlsx_stream).active.values)
-
+def xlsx_values(xlsx_bytes: bytes) -> tuple:
+    return tuple(load_workbook(io.BytesIO(xlsx_bytes)).active.values)
