@@ -31,6 +31,7 @@ class Mimetype(str, enum.Enum):
 class DocumentType(str, enum.Enum):
     pdf = 'pdf'
     docx = 'docx'
+    xlsx = 'xlsx'
 
     @property
     def mime_type(self):
