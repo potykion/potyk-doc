@@ -5,8 +5,8 @@ from jinja2xlsx import render_xlsx
 from potyk_doc.models import FileData
 
 
-def render_xlsx_from_html(html: str) -> FileData:
-    workbook: Workbook = render_xlsx(html)
+def render_xlsx_from_html(html: str, **render_xlsx_kwargs) -> FileData:
+    workbook: Workbook = render_xlsx(html, **render_xlsx_kwargs)
     workbook.save(stream := io.BytesIO())
     return stream.getvalue()
 
