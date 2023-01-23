@@ -7,6 +7,7 @@ from typing import NamedTuple
 # https://en.wikipedia.org/wiki/Media_type
 class Mimetype(str, enum.Enum):
     text = 'text/plain'
+    xml = 'application/xml'
     html = 'text/html'
     csv = 'text/csv'
     json = 'application/json'
@@ -32,12 +33,16 @@ class DocumentType(str, enum.Enum):
     pdf = 'pdf'
     docx = 'docx'
     xlsx = 'xlsx'
+    html = 'html'
+    json = 'json'
+    xml = 'xml'
 
     @property
     def mime_type(self):
         """
         >>> DocumentType.pdf.mime_type
         'application/pdf'
+        >>> assert all(type_ in Mimetype.__members__ for type_ in DocumentType.__members__)
         """
         return Mimetype.__members__[self.value].value
 
