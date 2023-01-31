@@ -228,7 +228,7 @@ i18n = ["Babel (>=2.7)"]
 
 [[package]]
 name = "jinja2xlsx"
-version = "1.1.2"
+version = "1.2.0"
 description = "Create xlsx-tables from html-tables"
 category = "main"
 optional = false
@@ -302,7 +302,7 @@ python-versions = "*"
 
 [[package]]
 name = "phonenumbers"
-version = "8.13.4"
+version = "8.13.5"
 description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
 category = "main"
 optional = false
@@ -322,7 +322,7 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "potyk-lib"
-version = "0.5.0"
+version = "0.6.0"
 description = ""
 category = "main"
 optional = false
@@ -555,20 +555,20 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "zipp"
-version = "3.11.0"
+version = "3.12.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.extras]
-docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "sphinx-lint", "jaraco.tidelift (>=1.4)"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "jaraco.functools", "more-itertools", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "pytest-flake8"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "ea3d7a5dfbd347bc5b34bf0d0502ec28d4ca81d7ef371e0faa0a57fa48c424c5"
+content-hash = "5d5f2783f4a711ce24225e16b1c16a534a47b5da91366253dbf25bfd4b10b350"
 
 [metadata.files]
 appdirs = []
